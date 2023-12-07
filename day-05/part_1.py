@@ -56,19 +56,6 @@ def organize_maps(almanac_data):
 
 def convert_source_to_destination(source_number, conversion_map):
     """
-    if the number is less than the first middle number:
-    it's self-referential.
-    if it's greater than or equal to, check the last number
-    and see if the seed number falls in that range. If yes,
-    look to the left and calculate the difference and add that
-    to the seed number
-    (if it's not, look ahead to the next middle number. If it's
-    between the last number of the previous range and the middle number,
-    it's self-referential.) <-- don't need this because if we don't match, just
-    catch it with the next less than!
-    ... continue
-    if we hit the end without matching the number, it's self-referential
-
     Takes in a source number and a conversion map for that source. Finds the
     next number and returns it.
 
@@ -191,4 +178,4 @@ def find_nearest_location():
     return min(locations)
 
 
-print(find_nearest_location())
+# print(find_nearest_location())
