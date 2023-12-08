@@ -22,12 +22,20 @@ def find_lower_bound(record_dist, time):
     Takes in a record distance and a time representing the length of the race.
     Finds the least number of milliseconds a button has to be pressed to
     beat the record.
+
+    This approach with my puzzle input (vs. just a plain loop that checks every
+    possible millisecond in order) reduces the number of operations
+    from 38,947,970 to 25.
     """
 
     leftIdx = 0  # shortest button press
     rightIdx = time  # longest button press
 
+    # for curiosity to see how many operations it takes to find the solution:
+    # counter = 0
+
     while (leftIdx <= rightIdx):
+        # counter += 1
         # find the middle value
         middleIdx = (leftIdx + rightIdx) // 2  # // is floor division operator
         distance = calculate_distance(time, middleIdx)
@@ -40,13 +48,13 @@ def find_lower_bound(record_dist, time):
             rightIdx = middleIdx - 1
         else:
             # we found our exact value, so grab next one up
-            return middleIdx + 1
+            return middleIdx + 1  # , counter
 
     # didn't find an exact match, so figure out which
     if distance < record_dist:
-        return middleIdx + 1
+        return middleIdx + 1  # , counter
 
-    return middleIdx
+    return middleIdx  # , counter
 
 
 def find_num_winners(lower_bound, time):
@@ -70,11 +78,11 @@ def calc_margin_of_error(races):
 
     for race in races:
         record_dist, race_time = race
-        lb = find_lower_bound(record_dist, race_time)
+        lb, counter = find_lower_bound(record_dist, race_time)
         num_ways_to_win = find_num_winners(lb, race_time)
         wins.append(num_ways_to_win)
 
-    return math.prod(wins)
+    return math.prod(wins)  # , counter
 
 
 # print(calc_margin_of_error([(241, 38), (1549, 94), (1074, 79), (1091, 70)]))
