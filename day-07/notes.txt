@@ -1,0 +1,27 @@
+ cards:     A, K, Q, J, T, 9, 8, 7, 6, 5, 4, 3, 2
+ strengths: 14,13,12,11,10...
+
+ 6: Five of a kind -- 1 unique card
+ 5: four of a kind -- 2 unique cards
+ 4: three of a kind -- 3 or 2 QQQJA or QQQJJ
+ 3: two pairs -- 3
+ 2: pair -- 4
+ 1: one of each -- 5
+
+
+32T3K 765
+T55J5 684
+KK677 28
+KTJJT 220
+QQQJA 483
+
+order these by strength:
+
+32T3K rank 1
+KTJJT rank 2 (two pair, weaker lead)
+KK677 rank 3 (two pair, stronger lead)
+T55J5 rank 4 (3 of a kind, weaker lead)
+T55K5 rank 5 (3 of a kind, stronger lead)
+
+multiply rank by bid and add all together
+
